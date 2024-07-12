@@ -1,0 +1,11 @@
+<h1> liste des arbres </h1>
+{% for acount in a %}
+{{acount.id}}
+{{acount.dateImplantation | date('d/y/m')}}
+{{acount.aRisque}}
+{%if acount.aRisque %}
+<a href="{{path('remove',{'id':acount.id})}}"> remove</a>
+{% endif %}
+<br>
+
+{%endfor%}
