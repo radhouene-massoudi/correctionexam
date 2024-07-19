@@ -45,4 +45,16 @@ class ParcRepository extends ServiceEntityRepository
 //            ->getOneOrNullResult()
 //        ;
 //    }
+
+
+
+public function findByParc($parc)
+   {
+    $req= $this->createQueryBuilder('p')
+    ->where('p.nom = :val')
+    ->setParameter('val', $parc)
+    ->getQuery()
+    ->getResult();
+    return  $req;
+   }
 }
